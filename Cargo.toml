@@ -1,0 +1,62 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/main",
+    "crates/jmap",
+    "crates/jmap-proto",
+    "crates/imap",
+    "crates/imap-proto",
+    "crates/smtp",
+    "crates/managesieve",
+    "crates/pop3",
+    "crates/nlp",
+    "crates/store",
+    "crates/directory",
+    "crates/utils",
+    "crates/common",
+    "crates/cli",
+    "tests",
+]
+
+[profile.dev]
+opt-level = 0
+debug = 1
+codegen-units = 4
+lto = false
+incremental = true
+panic = 'unwind'
+debug-assertions = true
+overflow-checks = false
+rpath = false
+
+[profile.release]
+opt-level = 3
+debug = false
+codegen-units = 1
+lto = true
+incremental = false
+panic = 'unwind'
+debug-assertions = false
+overflow-checks = false
+rpath = false
+#strip = true
+
+[profile.test]
+opt-level = 0
+debug = 1
+#codegen-units = 16
+lto = false
+incremental = true
+debug-assertions = true
+overflow-checks = true
+rpath = false
+
+[profile.bench]
+opt-level = 3
+debug = false
+codegen-units = 1
+lto = true
+incremental = false
+debug-assertions = false
+overflow-checks = false
+rpath = false

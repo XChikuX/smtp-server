@@ -1,0 +1,7 @@
+/target
+.vscode
+*.failed
+*_failed
+run.sh
+_ignore
+.DS_Store

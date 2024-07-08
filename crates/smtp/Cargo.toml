@@ -1,0 +1,62 @@
+[package]
+name = "smtp"
+description = "Stalwart SMTP Server"
+authors = [ "Stalwart Labs Ltd. <hello@stalw.art>"]
+repository = "https://github.com/stalwartlabs/smtp-server"
+homepage = "https://stalw.art/smtp"
+keywords = ["smtp", "email", "mail", "server"]
+categories = ["email"]
+license = "AGPL-3.0-only"
+version = "0.8.2"
+edition = "2021"
+resolver = "2"
+
+[dependencies]
+store = { path =  "../store" }
+utils = { path =  "../utils" }
+nlp = { path =  "../nlp" }
+directory = { path =  "../directory" }
+common = { path =  "../common" }
+mail-auth = { version = "0.4" }
+mail-send = { version = "0.4", default-features = false, features = ["cram-md5"] }
+mail-parser = { version = "0.9", features = ["full_encoding", "ludicrous_mode"] } 
+mail-builder = { version = "0.3", features = ["ludicrous_mode"] } 
+smtp-proto = { version = "0.1", features = ["serde_support"] }
+sieve-rs = { version = "0.5" } 
+ahash = { version = "0.8" }
+rustls = "0.22"
+rustls-pemfile = "2.0"
+rustls-pki-types = { version = "1" }
+tokio = { version = "1.23", features = ["full"] }
+tokio-rustls = { version = "0.25.0"}
+webpki-roots = { version = "0.26"}
+hyper = { version = "1.0.1", features = ["server", "http1", "http2"] }
+hyper-util = { version = "0.1.1", features = ["tokio"] }
+http-body-util = "0.1.0"
+form_urlencoded = "1.1.0"
+sha1 = "0.10"
+sha2 = "0.10.6"
+md5 = "0.7.0"
+rayon = "1.5"
+tracing = "0.1"
+parking_lot = "0.12"
+regex = "1.7.0"
+dashmap = "5.4"
+blake3 = "1.3"
+lru-cache = "0.1.2"
+rand = "0.8.5"
+x509-parser = "0.16.0"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls-webpki-roots", "blocking", "http2"] }
+serde = { version = "1.0", features = ["derive", "rc"] }
+serde_json = "1.0"
+num_cpus = "1.15.0"
+lazy_static = "1.4"
+bincode = "1.3.1"
+chrono = "0.4"
+
+[features]
+test_mode = []
+
+#[[bench]]
+#name = "hash"
+#harness = false

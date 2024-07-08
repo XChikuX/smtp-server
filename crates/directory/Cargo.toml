@@ -1,0 +1,42 @@
+[package]
+name = "directory"
+version = "0.8.2"
+edition = "2021"
+resolver = "2"
+
+[dependencies]
+utils = { path =  "../utils" }
+store = { path =  "../store" }
+jmap_proto = { path =  "../jmap-proto" }
+smtp-proto = { version = "0.1" }
+mail-parser = { version = "0.9", features = ["full_encoding", "serde_support", "ludicrous_mode"] } 
+mail-send = { version = "0.4", default-features = false, features = ["cram-md5"] }
+mail-builder = { version = "0.3", features = ["ludicrous_mode"] }
+tokio = { version = "1.23", features = ["net"] }
+tokio-rustls = { version = "0.25.0"}
+rustls = "0.22"
+rustls-pki-types = { version = "1" }
+ldap3 = { version = "0.11.1", default-features = false, features = ["tls-rustls"] }
+deadpool = { version = "0.10.0", features = ["managed", "rt_tokio_1"] }
+parking_lot = "0.12"
+async-trait = "0.1.68"
+ahash = { version = "0.8" }
+tracing = "0.1"
+lru-cache = "0.1.2"
+pwhash = "1"
+password-hash = "0.5.0"
+argon2 = "0.5.0"
+pbkdf2 = {version = "0.12.1", features = ["simple"] }
+scrypt = "0.11.0"
+sha1 = "0.10.5"
+sha2 = "0.10.6"
+md5 = "0.7.0"
+futures = "0.3"
+regex = "1.7.0"
+serde = { version = "1.0", features = ["derive"]}
+
+[dev-dependencies]
+tokio = { version = "1.23", features = ["full"] }
+
+[features]
+test_mode = []
